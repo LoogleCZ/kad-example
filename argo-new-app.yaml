@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: apps-kad
+  name: apps
   # You'll usually want to add your resources to the argocd namespace.
   namespace: argo
   # Add this finalizer ONLY if you want these to cascade delete.
@@ -12,7 +12,7 @@ metadata:
     # - resources-finalizer.argocd.argoproj.io/background
   # Add labels to your application object.
   labels:
-    name: apps-kad
+    name: apps
 spec:
   # The project the application belongs to.
   project: default
@@ -30,7 +30,7 @@ spec:
     # or cluster name
     # name: in-cluster
     # The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace
-    namespace: apps-kad
+    namespace: apps
 
   # Sync policy
   syncPolicy:

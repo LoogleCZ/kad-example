@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd
+  namespace: argo
+  labels:
+    cluster: c0
+    app: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/LoogleCZ/kad-example.git
+    targetRevision: HEAD
+    path: argo/cd
+  destination:
+    name: in-cluster
+    namespace: argo
+  syncPolicy:
+    syncOptions:
+    - Validate=true
+    - CreateNamespace=true
