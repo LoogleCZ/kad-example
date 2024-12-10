@@ -1,0 +1,25 @@
+image: docker.io/tomkukral/kad
+cluster: unknown
+replicas: 2
+
+ingress:
+  enabled: true
+  clusterhost: kad.6shore.net
+
+service:
+  type: ClusterIP
+  ipFamilyPolicy: PreferDualStack
+  # enable cilium global service
+  global: true
+
+rbac:
+  enabled: false
+
+prometheus:
+  enabled: true
+
+malware:
+  enabled: true
+  url: https://kad.c0.k8s.6shore.net/malware-call-home
+
+fallbacks: []
