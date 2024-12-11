@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+  namespace: argo
+  labels:
+    cluster: c0
+    app: prometheus
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/LoogleCZ/kad-example.git
+    targetRevision: HEAD
+    path: prometheus/
+  destination:
+    name: in-cluster
+    namespace: prometheus
+  syncPolicy:
+    syncOptions:
+    - Validate=true
+    - CreateNamespace=true
